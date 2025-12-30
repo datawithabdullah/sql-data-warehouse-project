@@ -41,6 +41,9 @@ SELECT DISTINCT
     cst_marital_status 
 FROM silver.crm_cust_info;
 
+-- Quality Check of the Silver Table (silver.crm_cust_info) Final Look
+SELECT * FROM silver.crm_cust_info ORDER BY cst_id;
+
 -- ====================================================================
 -- Checking 'silver.crm_prd_info'
 -- ====================================================================
@@ -79,6 +82,20 @@ SELECT
 FROM silver.crm_prd_info
 WHERE prd_end_dt < prd_start_dt;
 
+-- Test For Handling Dates
+SELECT
+prd_id,
+prd_key,
+prd_nm,
+prd_start_dt,
+prd_end_dt,
+LEAD(prd_start_dt) OVER (PARTITION BY prd_key ORDER BY prd_start_dt)-1 AS prd_end_dt_test
+FROM bronze.crm_prd_info
+WHERE prd_key IN ('AC-HE-HL-U509-R', 'AC-HE-HL-U509');
+
+-- Quality Check of the Silver Table (silver.crm_prd_info) Final Look
+SELECT * FROM silver.crm_prd_info;
+
 -- ====================================================================
 -- Checking 'silver.crm_sales_details'
 -- ====================================================================
@@ -100,7 +117,9 @@ FROM silver.crm_sales_details
 WHERE sls_order_dt > sls_ship_dt 
    OR sls_order_dt > sls_due_dt;
 
--- Check Data Consistency: Sales = Quantity * Price
+-- Check Data Consistency: Between Sales, Quantity and Price
+-- >> Sales = Quantity * Price 
+-- >> Values must not be NULL, zero or negative.
 -- Expectation: No Results
 SELECT DISTINCT 
     sls_sales,
@@ -115,6 +134,9 @@ WHERE sls_sales != sls_quantity * sls_price
    OR sls_quantity <= 0 
    OR sls_price <= 0
 ORDER BY sls_sales, sls_quantity, sls_price;
+
+-- Quality Check of the Silver Table (silver.crm_sales_details) Final Look
+SELECT * FROM silver.crm_sales_details;
 
 -- ====================================================================
 -- Checking 'silver.erp_cust_az12'
@@ -132,6 +154,9 @@ SELECT DISTINCT
     gen 
 FROM silver.erp_cust_az12;
 
+-- Quality Check of the Silver Table (silver.erp_cust_az12) Final Look
+SELECT * FROM silver.erp_cust_az12;
+
 -- ====================================================================
 -- Checking 'silver.erp_loc_a101'
 -- ====================================================================
@@ -140,6 +165,9 @@ SELECT DISTINCT
     cntry 
 FROM silver.erp_loc_a101
 ORDER BY cntry;
+
+-- Quality Check of the Silver Table (silver.erp_loc_a101) Final Look
+SELECT * FROM silver.erp_loc_a101;
 
 -- ====================================================================
 -- Checking 'silver.erp_px_cat_g1v2'
@@ -157,3 +185,6 @@ WHERE cat != TRIM(cat)
 SELECT DISTINCT 
     maintenance 
 FROM silver.erp_px_cat_g1v2;
+
+-- Quality Check of the Silver Table (silver.erp_px_cat_g1v2) Final Look
+SELECT * FROM silver.erp_px_cat_g1v2;
