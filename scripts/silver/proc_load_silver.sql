@@ -105,7 +105,7 @@ BEGIN
 			CAST(
 				LEAD(prd_start_dt) OVER (PARTITION BY prd_key ORDER BY prd_start_dt)-1 
 				AS DATE
-				) AS prd_end_dt -- Calculate end date as one day before the next start date
+			) AS prd_end_dt -- Calculate end date as one day before the next start date
 		FROM bronze.crm_prd_info;
 		SET @end_time = GETDATE();
 		PRINT '>> Load Duration: ' + CAST(DATEDIFF(second, @start_time, @end_time) AS NVARCHAR) + ' seconds';
