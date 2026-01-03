@@ -81,14 +81,14 @@ Develop a modern data warehouse using SQL Server to consolidate sales data, enab
 - ✅ Create Database & Schemas
 
 ### 4️⃣ Build Bronze Layer 
-- ✅ **Analysing:** Source Systems
+- ✅ **Analyzing:** Source Systems
 - ✅ **Coding:** Data Ingestion
 - ✅ **Validating:** Data Completeness & Schema Checks
 - ✅ **Document:** Draw Data Flow (Draw.io)
 - ✅ **Commit:** Code in Git Repo
 
 ### 5️⃣ Build Silver Layer 
-- ✅ **Analysing:** Explore & Understand Data
+- ✅ **Analyzing:** Explore & Understand Data
 - ✅ **Document:** Draw Data Integration (Draw.io)
 - ✅ **Coding:** Data Cleansing
 - ✅ **Validating:** Data Correctness Checks
@@ -96,7 +96,7 @@ Develop a modern data warehouse using SQL Server to consolidate sales data, enab
 - ✅ **Commit:** Code in Git Repo
 
 ### 6️⃣ Build Gold Layer 
-- ✅ **Analysing:** Explore Business Objects
+- ✅ **Analyzing:** Explore Business Objects
 - ✅ **Coding:** Data Integration
 - ✅ **Validating:** Data Integration Checks
 - ✅ **Document:** Draw Data Model of Star Schema (Draw.io)
