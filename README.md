@@ -164,3 +164,5 @@ Hi! I'm **Abdullah Emad**, a **Data Engineer** driven by a core mission: **Trans
 I focus on architecting robust infrastructure that makes data clean, organized, and ready for action. I believe that well-architected data is the backbone of every great decision, and I’m dedicated to implementing best practices to ensure data quality and scalability.
 
 Let’s connect to discuss data, insights, or professional opportunities:
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/abdullah-emad-abdullah/)
